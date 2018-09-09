@@ -58,7 +58,6 @@ def step_impl(context):
 def step_impl(context):
     element = context.browser.find_element(By.CSS_SELECTOR, ".selected-flag")
     assert element.get_attribute("title") == "Cuba: +53"
-
 @when('Leave date of birth field empty')
 def step_impl(context):
     context.browser.find_element(By.CSS_SELECTOR, "#form-date_of_birth").send_keys(" ")
@@ -73,7 +72,6 @@ def step_impl(context, date):
 @then('Phone field return an error message')
 def step_impl(context):
     pass#assert context.browser.find_element(By.CSS_SELECTOR,"[ng-switch-when] [ng-message]").text == "THIS FIELD IS NOT VALID"
-
 
 
 

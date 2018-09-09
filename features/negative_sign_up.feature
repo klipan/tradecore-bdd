@@ -5,7 +5,6 @@ Feature: Tradecore app failed
         When Click Next
         Then Required fields become red
 
-
     Scenario Outline: Wrong email
         When Enter "<email>"
         Then Email field throws an error

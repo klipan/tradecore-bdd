@@ -93,9 +93,9 @@ def step_impl(context):
     date.clear()
     date.send_keys("19/12/1987")
 
-
+    context.browser.find_element_by_css_selector("[id=form___fieldId___chosen]").click()
     country = context.browser.find_element_by_css_selector("#form___fieldId___chosen [type]")
-    country.send_keys("Serbia")
+    country.send_keys("Cuba")
     country.send_keys(Keys.ENTER)
 @then('User is redirected to questionnaire')
 def step_impl(context):

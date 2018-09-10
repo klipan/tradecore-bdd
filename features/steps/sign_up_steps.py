@@ -70,33 +70,51 @@ def step_impl(context, date):
     date_of_birth = context.browser.find_element(By.CSS_SELECTOR, ".posr [name='date_of_birth']")
     date_of_birth.clear()
     date_of_birth.send_keys(date)
-@then('Phone field return an error message')
+@then('Phone field returns an error message')
+def step_impl(context):
+    assert context.browser.find_element(By.CSS_SELECTOR,"[ng-switch-when] [ng-message]").text == "THIS FIELD IS NOT VALID"
+@when('Enter "{address}" in Address line 1 field')
+def step_impl(context, address):
+    element = context.browser.find_element(By.CSS_SELECTOR, "[id=form-addr_street]")
+    element.clear()
+    element.send_keys(address)
+@then("Address field returns an error message")
 def step_impl(context):
     assert context.browser.find_element(By.CSS_SELECTOR,"[ng-switch-when] [ng-message]").text == "THIS FIELD IS NOT VALID"
 
-
-
 @when('Enter all required fields')
 def step_impl(context):
-    context.browser.find_element(By.CSS_SELECTOR, ".posr [name='first_name']").send_keys("Nikola")
-    context.browser.find_element(By.CSS_SELECTOR, ".posr [name='last_name']").send_keys("Klipa")
+    context.browser.find_element(By.CSS_SELECTOR, "[id=form-first_name]").send_keys("Nikola")
+    context.browser.find_element(By.CSS_SELECTOR, "[id=form-last_name]").send_keys("Klipa")
+    
     email = context.browser.find_element(By.CSS_SELECTOR, "[id=form-email]")
     email.clear()
     email.send_keys("test@tradecore.com")
+    
     password = context.browser.find_element(By.CSS_SELECTOR, '[id=form-password]')
     password.clear()
     password.send_keys("test11")
+    
     phone = context.browser.find_element_by_css_selector("[id=form-telephone]")
     phone.clear()
     phone.send_keys("+381658700045")
+    
     date = context.browser.find_element(By.CSS_SELECTOR, ".posr [name='date_of_birth']")
     date.clear()
     date.send_keys("19/12/1987")
 
     context.browser.find_element_by_css_selector("[id=form___fieldId___chosen]").click()
     country = context.browser.find_element_by_css_selector("#form___fieldId___chosen [type]")
-    country.send_keys("Cuba")
+    country.send_keys("Serbia")
     country.send_keys(Keys.ENTER)
-@then('User is redirected to questionnaire')
+    
+    context.browser.find_element(By.CSS_SELECTOR, "[id=form-addr_zip]").send_keys("11070")
+
+    address = context.browser.find_element(By.CSS_SELECTOR, "[id=form-addr_street]")
+    address.clear()
+    address.send_keys("Bore Markovica 13-15")
+
+    context.browser.find_element(By.CSS_SELECTOR, "[id=form-addr_city]").send_keys("Belgrade")
+@then('User is redirected to a questionnaire')
 def step_impl(context):
-    pass
+    assert context.browser.find_element(By.CSS_SELECTOR, "[id=form-first_name]").text == "Nikola"

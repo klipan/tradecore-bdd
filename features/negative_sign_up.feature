@@ -8,9 +8,7 @@ Feature: Tradecore app failed
     Scenario Outline: Wrong email
         When Enter "<email>"
         Then Email field throws an error
-
     Examples:
-
         | email |
         | test |
         | test@ |
@@ -20,7 +18,6 @@ Feature: Tradecore app failed
     Scenario Outline: Wrong password
         When Type "<password>"
         Then Password field throws an error
-
     Examples:
         | password |
         | test |
@@ -50,10 +47,19 @@ Feature: Tradecore app failed
 
     Scenario Outline: Date of birth field
         When Enter "<date>" in date of birth field
-        Then Phone field return an error message
+        Then Phone field returns an error message
     Examples:
         | date |
         | 09 |
+        | 09/45 |
         | te/te/2000 |
         | 45/45/1987 |
         | 07/06/1200 |
+
+    Scenario Outline: Address field
+        When Enter "<address>" in Address line 1 field
+        Then Address field returns an error message
+    Examples:
+        | address |
+        | Bore Markovica 13>15 |
+        | test< |

@@ -10,7 +10,7 @@ Feature: Tradecore app failed
         Then Email field throws an error
     Examples:
         | email |
-        | test |
+        | Test |
         | test@ |
         | test@54.c |
         | test32@5454.a |
@@ -21,7 +21,7 @@ Feature: Tradecore app failed
     Examples:
         | password |
         | test |
-        | TeT3 |
+        | TeT31 |
         | 12432432:" |
 
     Scenario Outline: Phone number

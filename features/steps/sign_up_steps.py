@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
 
 @given('Go to Tradecore site')
 def step_impl(context):
@@ -89,11 +90,11 @@ def step_impl(context):
     
     email = context.browser.find_element(By.CSS_SELECTOR, "[id=form-email]")
     email.clear()
-    email.send_keys("test@tradecore.com")
+    email.send_keys("test1@tre.com")
     
     password = context.browser.find_element(By.CSS_SELECTOR, '[id=form-password]')
     password.clear()
-    password.send_keys("test11")
+    password.send_keys("Test11")
     
     phone = context.browser.find_element_by_css_selector("[id=form-telephone]")
     phone.clear()
@@ -115,6 +116,18 @@ def step_impl(context):
     address.send_keys("Bore Markovica 13-15")
 
     context.browser.find_element(By.CSS_SELECTOR, "[id=form-addr_city]").send_keys("Belgrade")
+
+    context.browser.find_element(By.CSS_SELECTOR, '#button-step').click()
 @then('User is redirected to a questionnaire')
 def step_impl(context):
-    assert context.browser.find_element(By.CSS_SELECTOR, "[id=form-first_name]").text == "Nikola"
+    title = context.browser.find_element(By.XPATH, "//*[contains(text(), 'Have you traded')]")
+    assert title.is_displayed()
+
+@when('Select one of "{answers}" from Shares')
+def step_impl(context, answers):
+    dropdown = Select(context.browser.find_element(By.CSS_SELECTOR, "[errors] [ng-class='\{\'col-xs-12\'\: \(f\.half \=\= null \|\| f\.half \=\= false\) \&\& f\.type \!\= \'title\'\, \'col-xs-6\'\: f\.half \=\= true\, \'col-xs-push-6\'\: f\.half \=\=\= true \&\& \$state\.includes\(\'base-ib\'\) \&\& layout \=\=\= \'rtl\'\}']:nth-of-type(2) span"))
+    dropdown.select_by_visible_text(answers)
+@then('One of the Shares dropdown "{answers}" will be visible')
+def step_impl(context, answers):
+    dropdown = context.browser.find_element(By.CSS_SELECTOR, "[errors] [ng-class='\{\'col-xs-12\'\: \(f\.half \=\= null \|\| f\.half \=\= false\) \&\& f\.type \!\= \'title\'\, \'col-xs-6\'\: f\.half \=\= true\, \'col-xs-push-6\'\: f\.half \=\=\= true \&\& \$state\.includes\(\'base-ib\'\) \&\& layout \=\=\= \'rtl\'\}']:nth-of-type(2) span")
+    assert dropdown.select_by_visible_text(answers)

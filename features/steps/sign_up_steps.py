@@ -1,5 +1,6 @@
 from behave import step, then, given, when
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -66,12 +67,12 @@ def step_impl(context):
     assert context.browser.find_element(By.CSS_SELECTOR,"[class='help-block ng-active']").text == "THIS FIELD IS REQUIRED"
 @when('Enter "{date}" in date of birth field')
 def step_impl(context, date):
-    date = context.browser.find_element(By.CSS_SELECTOR, ".posr [name='date_of_birth']")
-    date.clear()
-    date.send_keys(date)
+    date_of_birth = context.browser.find_element(By.CSS_SELECTOR, ".posr [name='date_of_birth']")
+    date_of_birth.clear()
+    date_of_birth.send_keys(date)
 @then('Phone field return an error message')
 def step_impl(context):
-    pass#assert context.browser.find_element(By.CSS_SELECTOR,"[ng-switch-when] [ng-message]").text == "THIS FIELD IS NOT VALID"
+    assert context.browser.find_element(By.CSS_SELECTOR,"[ng-switch-when] [ng-message]").text == "THIS FIELD IS NOT VALID"
 
 
 
@@ -85,6 +86,17 @@ def step_impl(context):
     password = context.browser.find_element(By.CSS_SELECTOR, '[id=form-password]')
     password.clear()
     password.send_keys("test11")
+    phone = context.browser.find_element_by_css_selector("[id=form-telephone]")
+    phone.clear()
+    phone.send_keys("+381658700045")
+    date = context.browser.find_element(By.CSS_SELECTOR, ".posr [name='date_of_birth']")
+    date.clear()
+    date.send_keys("19/12/1987")
+
+
+    country = context.browser.find_element_by_css_selector("#form___fieldId___chosen [type]")
+    country.send_keys("Serbia")
+    country.send_keys(Keys.ENTER)
 @then('User is redirected to questionnaire')
 def step_impl(context):
     pass

@@ -48,7 +48,12 @@ Feature: Tradecore app failed
         When Leave date of birth field empty
         Then Error message is showing
 
-    Scenario: Date of birth field
-        When Enter "09/09/2000" in date of birth field
+    Scenario Outline: Date of birth field
+        When Enter "<date>" in date of birth field
         Then Phone field return an error message
-
+    Examples:
+        | date |
+        | 09 |
+        | te/te/2000 |
+        | 45/45/1987 |
+        | 07/06/1200 |

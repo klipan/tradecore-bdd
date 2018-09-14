@@ -122,14 +122,18 @@ def step_impl(context):
     context.browser.find_element(By.CSS_SELECTOR, Locators._next_button).click()
 @then('User is redirected to a questionnaire')
 def step_impl(context):
+    #WebDriverWait(context.browser, 15).until(EC.element_to_be_clickable((By.XPATH, "[ng-class='\{\'text-red\'\:field\.\$invalid \&\& form\.\$submitted\}']")))
     title = context.browser.find_element(By.XPATH, "//*[contains(text(), 'Have you traded')]")
     assert title.is_displayed()
 
-@when('Select one of "{answers}" from Shares')
-def step_impl(context, answers):
-    dropdown = Select(context.browser.find_element(By.CSS_SELECTOR, "[errors] [ng-class='\{\'col-xs-12\'\: \(f\.half \=\= null \|\| f\.half \=\= false\) \&\& f\.type \!\= \'title\'\, \'col-xs-6\'\: f\.half \=\= true\, \'col-xs-push-6\'\: f\.half \=\=\= true \&\& \$state\.includes\(\'base-ib\'\) \&\& layout \=\=\= \'rtl\'\}']:nth-of-type(2) span"))
-    dropdown.select_by_visible_text(answers)
-@then('One of the Shares dropdown "{answers}" will be visible')
-def step_impl(context, answers):
-    dropdown = context.browser.find_element(By.CSS_SELECTOR, "[errors] [ng-class='\{\'col-xs-12\'\: \(f\.half \=\= null \|\| f\.half \=\= false\) \&\& f\.type \!\= \'title\'\, \'col-xs-6\'\: f\.half \=\= true\, \'col-xs-push-6\'\: f\.half \=\=\= true \&\& \$state\.includes\(\'base-ib\'\) \&\& layout \=\=\= \'rtl\'\}']:nth-of-type(2) span")
-    assert dropdown.select_by_visible_text(answers)
+@when('Select one of Frequently from Shares')
+def step_impl(context):
+    WebDriverWait(context.browser, 15).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '[id=button-step]')))
+    context.browser.execute_script("document.getElementById('form-shares').setAttribute('style', 'inline-block')")
+
+    context.browser.find_element(By.XPATH, "//*[@id='form___fieldId___chosen']/a").click()
+    context.browser.find_element(By.XPATH, "//*[@id='form___fieldId___chosen']/a/span").click()
+@then('One of the Shares dropdown Frequently will be visible')
+def step_impl(context):
+    pass# dropdown = context.browser.find_element(By.CSS_SELECTOR, "")
+    #assert dropdown.select_by_visible_text(answers)

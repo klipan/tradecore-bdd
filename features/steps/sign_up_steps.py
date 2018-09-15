@@ -126,14 +126,126 @@ def step_impl(context):
     title = context.browser.find_element(By.XPATH, "//*[contains(text(), 'Have you traded')]")
     assert title.is_displayed()
 
-@when('Select one of Frequently from Shares')
-def step_impl(context):
+@when('Select one of "{options}" from Shares')
+def step_impl(context, options):
     WebDriverWait(context.browser, 15).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '[id=button-step]')))
     context.browser.execute_script("document.getElementById('form-shares').setAttribute('style', 'inline-block')")
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-shares']"))
+    dd.select_by_visible_text(options)
 
-    context.browser.find_element(By.XPATH, "//*[@id='form___fieldId___chosen']/a").click()
-    context.browser.find_element(By.XPATH, "//*[@id='form___fieldId___chosen']/a/span").click()
-@then('One of the Shares dropdown Frequently will be visible')
+@then('One of the Shares "{options}" is visible')
+def step_impl(context, options):
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-shares']"))
+    assert dd.first_selected_option.text == options
+
+@when('Select one of "{options}" from Forex')
+def step_impl(context, options):
+    context.browser.execute_script("document.getElementById('form-forex').setAttribute('style', 'inline-block')")
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-forex']"))
+    dd.select_by_visible_text(options)
+
+@then('One of the Forex "{options}" is visible')
+def step_impl(context, options):
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-forex']"))
+    assert dd.first_selected_option.text == options
+
+@when('Select one of "{options}" from Cfds')
+def step_impl(context, options):
+    context.browser.execute_script("document.getElementById('form-cfds').setAttribute('style', 'inline-block')")
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-cfds']"))
+    dd.select_by_visible_text(options)
+
+@then('One of the Cfds "{options}" is visible')
+def step_impl(context, options):
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-cfds']"))
+    assert dd.first_selected_option.text == options
+
+@when('Select one of "{options}" from Spread betting')
+def step_impl(context, options):
+    context.browser.execute_script("document.getElementById('form-spread_betting').setAttribute('style', 'inline-block')")
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-spread_betting']"))
+    dd.select_by_visible_text(options)
+
+@then('One of the Spread betting "{options}" is visible')
+def step_impl(context, options):
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-spread_betting']"))
+    assert dd.first_selected_option.text == options
+
+@when('Select one of "{options}" from Relevante Experience')
+def step_impl(context, options):
+    context.browser.execute_script("document.getElementById('form-relevant_experience').setAttribute('style', 'inline-block')")
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-relevant_experience']"))
+    dd.select_by_visible_text(options)
+
+@then('One of the Relevante Experience "{options}" is visible')
+def step_impl(context, options):
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-relevant_experience']"))
+    assert dd.first_selected_option.text == options
+
+@when('Select one of "{answer}" from Trading platform')
+def step_impl(context, answer):
+    context.browser.execute_script("document.getElementById('form-trading_accounts').setAttribute('style', 'inline-block')")
+    element = context.browser.find_element(By.XPATH, "//select[@id='form-trading_accounts']")
+    element.send_keys(answer)
+@then('One of the Trading platform "{answer}" is visible')
+def step_impl(context, answer):
+    dd = Select(context.browser.find_element(By.XPATH, "//select[@id='form-trading_accounts']"))
+    assert  dd.first_selected_option.text == answer
+
+@when('Select one of "{options}" from Currency')
+def step_impl(context, options):
+    context.browser.execute_script("document.getElementById('form-currency').setAttribute('style', 'inline-block')")
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-currency']"))
+    dd.select_by_visible_text(options)
+
+@then('One of the Currency "{options}" is visible')
+def step_impl(context, options):
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-currency']"))
+    assert dd.first_selected_option.text == options
+
+@when('Select one of "{options}" from Annual Income')
+def step_impl(context, options):
+    context.browser.execute_script("document.getElementById('form-approx_annual_income').setAttribute('style', 'inline-block')")
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-approx_annual_income']"))
+    dd.select_by_visible_text(options)
+
+@then('One of the Annual Income "{options}" is visible')
+def step_impl(context, options):
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-approx_annual_income']"))
+    assert dd.first_selected_option.text == options
+
+@when('Select one of "{options}" from Employment status')
+def step_impl(context, options):
+    context.browser.execute_script("document.getElementById('form-employment_status').setAttribute('style', 'inline-block')")
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-employment_status']"))
+    dd.select_by_visible_text(options)
+
+@then('One of the Employment status "{options}" is visible')
+def step_impl(context, options):
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-employment_status']"))
+    assert dd.first_selected_option.text == options
+
+@when('Select one of "{options}" from Assets')
+def step_impl(context, options):
+    context.browser.execute_script("document.getElementById('form-liquid_savings').setAttribute('style', 'inline-block')")
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-liquid_savings']"))
+    dd.select_by_visible_text(options)
+
+@then('One of the Assets "{options}" is visible')
+def step_impl(context, options):
+    dd = Select (context.browser.find_element(By.XPATH, "//select[@id='form-liquid_savings']"))
+    assert dd.first_selected_option.text == options
+
+@when('User clicks on Finish button')
 def step_impl(context):
-    pass# dropdown = context.browser.find_element(By.CSS_SELECTOR, "")
-    #assert dropdown.select_by_visible_text(answers)
+    pass
+@then('Error is displayed')
+def step_impl(context):
+    pass
+
+@when('Select read terms')
+def step_impl(context):
+    context.browser.find_element(By.CSS_SELECTOR, ".checkbox").click()
+@then('Read terms checkbox is selected')
+def step_impl(context):
+    assert not context.browser.find_element(By.CSS_SELECTOR, ".text-red").is_desplayed()

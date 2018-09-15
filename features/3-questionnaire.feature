@@ -1,0 +1,106 @@
+Feature: Questionnaire test
+
+    Scenario Outline: Share
+        When Select one of "<options>" from Shares
+        Then One of the Shares "<options>" is visible
+
+    Examples:
+        | options |
+        | Frequently |
+        | Sometimes |
+        | No |
+
+    Scenario Outline: Forex
+        When Select one of "<options>" from Forex
+        Then One of the Forex "<options>" is visible
+
+    Examples:
+        | options |
+        | Frequently |
+        | Sometimes |
+        | No |
+
+    Scenario Outline: Cfds
+        When Select one of "<options>" from Cfds
+        Then One of the Cfds "<options>" is visible
+
+    Examples:
+        | options |
+        | Frequently |
+        | Sometimes |
+        | No |
+
+    Scenario Outline: Spread betting
+        When Select one of "<options>" from Spread betting
+        Then One of the Spread betting "<options>" is visible
+
+    Examples:
+        | options |
+        | Frequently |
+        | Sometimes |
+        | No |
+
+    Scenario Outline: Relevante Experience
+        When Select one of "<options>" from Relevante Experience
+        Then One of the Relevante Experience "<options>" is visible
+
+    Examples:
+        | options |
+        | Attended a relevant training course |
+        | Had experience of working in the financial sector |
+        | No other relevant experience |
+
+    Scenario: Trading platform
+        When Select one of "MT5" from Trading platform
+        Then One of the Trading platform "MT5" is visible
+
+    Scenario Outline: Currency
+        When Select one of "<options>" from Currency
+        Then One of the Currency "<options>" is visible
+
+    Examples:
+        | options |
+        | USD |
+        | EUR |
+        | GBP |
+
+    Scenario Outline: Annual Income
+        When Select one of "<options>" from Annual Income
+        Then One of the Annual Income "<options>" is visible
+
+    Examples:
+        | options |
+        | Over $100,000 |
+        | $50,000 - $99,999 |
+        | $15,000 - $49,999 |
+        | Less than $15,000 |
+
+    Scenario Outline: Employment status
+        When Select one of "<options>" from Employment status
+        Then One of the Employment status "<options>" is visible
+
+    Examples:
+        | options |
+        | Employed |
+        | Self Employed |
+        | Retired |
+        | Student |
+        | Unemployed |
+
+    Scenario Outline: Assets
+        When Select one of "<options>" from Assets
+        Then One of the Assets "<options>" is visible
+
+    Examples:
+        | options |
+        | Over $100,000 |
+        | $50,000 - $99,999 |
+        | $5,000 - $49,999 |
+        | Less than $5,000 |
+    Scenario: Click Finish button
+        When User clicks on Finish button
+        Then Error is displayed
+
+    Scenario: Read terms
+        When Select read terms
+        Then Read terms checkbox is selected

@@ -6,9 +6,9 @@ Feature: Questionnaire test
 
     Examples:
         | options |
-        | Frequently |
-        | Sometimes |
         | No |
+        | Sometimes |
+        | Frequently |
 
     Scenario Outline: Forex
         When Select one of "<options>" from Forex
@@ -17,8 +17,8 @@ Feature: Questionnaire test
     Examples:
         | options |
         | Frequently |
-        | Sometimes |
         | No |
+        | Sometimes |
 
     Scenario Outline: Cfds
         When Select one of "<options>" from Cfds
@@ -36,9 +36,9 @@ Feature: Questionnaire test
 
     Examples:
         | options |
-        | Frequently |
         | Sometimes |
         | No |
+        | Frequently |
 
     Scenario Outline: Relevante Experience
         When Select one of "<options>" from Relevante Experience
@@ -97,6 +97,7 @@ Feature: Questionnaire test
         | $50,000 - $99,999 |
         | $5,000 - $49,999 |
         | Less than $5,000 |
+
     Scenario: Portal is open
         When Select read terms
         And Click Finish

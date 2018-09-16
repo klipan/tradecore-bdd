@@ -1,3 +1,6 @@
+import random
+import string
+
 
 class Locators(object):
 
@@ -26,7 +29,8 @@ class Elements(object):
     _first_name = "Nikola"
     _last_name = "Klipa"
     _cuban_code_flag = "Cuba: +53"
-    _email = "test1@tre.com"
+    random_string = ''.join([random.choice(string.ascii_letters.lower() + string.digits) for n in range(8)])
+    _email = random_string + "@tradecore.com"
     _password = "Test11"
     _telephone = "+381658700045"
     _date_of_birth = "19/12/1987"

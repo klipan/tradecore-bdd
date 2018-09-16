@@ -27,4 +27,5 @@ class Locators_q(object):
     _read_terms = ".checkbox"
     _new_trading_acount_tab = '#base\.portal\.account-add'
     _last_page_title = "TradeCore - Account"
-
+    _path_error_required = "[class='help-block ng-active']"
+    _error_message_required = "THIS FIELD IS REQUIRED"

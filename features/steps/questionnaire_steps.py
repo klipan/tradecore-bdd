@@ -13,6 +13,13 @@ def step_impl(context):
     title = context.browser.find_element(By.XPATH, Locators_q._path_question_second_page)
     assert title.is_displayed()
 
+@when('Click Finish button')
+def step_impl(context):
+    context.browser.find_element(By.CSS_SELECTOR, Locators_q._path_finish_button).click()
+@then('Required fields are marked in red')
+def step_impl(context):
+    assert context.browser.find_element(By.CSS_SELECTOR, Locators_q._path_error_required).text == Locators_q._error_message_required
+
 @when('Select one of "{options}" from Shares')
 def step_impl(context, options):
     WebDriverWait(context.browser, 15).until(EC.element_to_be_clickable((By.CSS_SELECTOR, Locators_q._path_finish_button)))

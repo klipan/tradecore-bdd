@@ -1,5 +1,9 @@
 Feature: Questionnaire test
 
+    Scenario: Questionnaire page
+        When Click Finish button
+        Then Required fields are marked in red
+
     Scenario Outline: Share
         When Select one of "<options>" from Shares
         Then One of the Shares "<options>" is visible

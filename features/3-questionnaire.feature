@@ -54,6 +54,9 @@ Feature: Questionnaire test
         When Select one of "MT5" from Trading platform
         Then One of the Trading platform "MT5" is visible
 
+    Scenario: Currency dropdown is visible
+        Then Currency dropdown is displayed
+
     Scenario Outline: Currency
         When Select one of "<options>" from Currency
         Then One of the Currency "<options>" is visible

@@ -74,10 +74,15 @@ def step_impl(context, answer):
     context.browser.execute_script(Locators_q._java_script_trading_platform)
     element = context.browser.find_element(By.XPATH, Locators_q._path_trading_platform)
     element.send_keys(answer)
+
 @then('One of the Trading platform "{answer}" is visible')
 def step_impl(context, answer):
     dd = Select(context.browser.find_element(By.XPATH, Locators_q._path_trading_platform))
     assert  dd.first_selected_option.text == answer
+
+@then('Currency dropdown is displayed')
+def step_impl(context):
+    assert context.browser.find_element(By.CSS_SELECTOR, "[for='form-currency']").is_displayed()
 
 @when('Select one of "{options}" from Currency')
 def step_impl(context, options):

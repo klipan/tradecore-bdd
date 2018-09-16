@@ -82,7 +82,7 @@ def step_impl(context, answer):
 
 @then('Currency dropdown is displayed')
 def step_impl(context):
-    assert context.browser.find_element(By.CSS_SELECTOR, "[for='form-currency']").is_displayed()
+    assert context.browser.find_element(By.CSS_SELECTOR, Locators_q._path_currency_title).is_displayed()
 
 @when('Select one of "{options}" from Currency')
 def step_impl(context, options):
@@ -130,11 +130,11 @@ def step_impl(context, options):
 
 @when('Select read terms')
 def step_impl(context):
-    context.browser.find_element(By.CSS_SELECTOR, ".checkbox").click()
+    context.browser.find_element(By.CSS_SELECTOR, Locators_q._read_terms).click()
 @when('Click Finish')
 def step_impl(context):
-    context.browser.find_element(By.CSS_SELECTOR, "#button-step").click()
+    context.browser.find_element(By.CSS_SELECTOR, Locators_q._path_finish_button).click()
 @then('Test is done')
 def step_impl(context):
-    WebDriverWait(context.browser, 50).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#base\.portal\.account-add')))
-    assert context.browser.title == "TradeCore - Account"
+    WebDriverWait(context.browser, 50).until(EC.element_to_be_clickable((By.CSS_SELECTOR, Locators_q._new_trading_acount_tab)))
+    assert context.browser.title == Locators_q._last_page_title

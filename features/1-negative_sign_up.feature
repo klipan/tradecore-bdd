@@ -63,3 +63,7 @@ Feature: Tradecore app failed
         | address |
         | Bore Markovica 13>15 |
         | test< |
+
+    Scenario: Postcode is missing
+        When Enter all required fields except postcode
+        Then Error message is dislayed

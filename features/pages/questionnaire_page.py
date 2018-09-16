@@ -10,6 +10,7 @@ class Locators_q(object):
     _path_relevante_experience = "//select[@id='form-relevant_experience']"
     _path_trading_platform = "//select[@id='form-trading_accounts']"
     _path_currency = "//select[@id='form-currency']"
+    _path_currency_title = "[for='form-currency']"
     _path_annual_income = "//select[@id='form-approx_annual_income']"
     _path_employment_status = "//select[@id='form-employment_status']"
     _path_assets = "//select[@id='form-liquid_savings']"
@@ -23,3 +24,7 @@ class Locators_q(object):
     _java_script_annual_income = "document.getElementById('form-approx_annual_income').setAttribute('style', 'inline-block')"
     _java_script_employment_status = "document.getElementById('form-employment_status').setAttribute('style', 'inline-block')"
     _java_script_assets = "document.getElementById('form-liquid_savings').setAttribute('style', 'inline-block')"
+    _read_terms = ".checkbox"
+    _new_trading_acount_tab = '#base\.portal\.account-add'
+    _last_page_title = "TradeCore - Account"
+

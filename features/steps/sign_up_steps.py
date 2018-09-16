@@ -85,6 +85,36 @@ def step_impl(context, address):
 def step_impl(context):
     assert context.browser.find_element(By.CSS_SELECTOR,Locators._path_error_not_valid_2).text == Elements._error_message_not_valid
 
+@when('Enter all required fields except postcode')
+def step_impl(context):
+    context.browser.find_element(By.CSS_SELECTOR, Locators._path_first_name).send_keys(Elements._first_name)
+    context.browser.find_element(By.CSS_SELECTOR, Locators._path_last_name).send_keys(Elements._last_name)
+    email = context.browser.find_element(By.CSS_SELECTOR, Locators._path_email)
+    email.clear()
+    email.send_keys(Elements._email)
+    password = context.browser.find_element(By.CSS_SELECTOR, Locators._path_password)
+    password.clear()
+    password.send_keys(Elements._password)
+    phone = context.browser.find_element(By.CSS_SELECTOR, Locators._path_telephone)
+    phone.clear()
+    phone.send_keys(Elements._telephone)
+    date = context.browser.find_element(By.CSS_SELECTOR, Locators._path_date_of_birth)
+    date.clear()
+    date.send_keys(Elements._date_of_birth)
+    context.browser.find_element_by_css_selector(Locators._path_country_dropdown).click()
+    country = context.browser.find_element_by_css_selector("#form___fieldId___chosen [type]")
+    country.send_keys(Elements._country)
+    country.send_keys(Keys.ENTER)
+    address = context.browser.find_element(By.CSS_SELECTOR, Locators._path_address)
+    address.clear()
+    address.send_keys(Elements._address)
+    context.browser.find_element(By.CSS_SELECTOR, Locators._path_city).send_keys(Elements._city)
+    context.browser.find_element(By.CSS_SELECTOR, Locators._next_button).click()
+
+@then('Error message is dislayed')
+def step_impl(context):
+    assert context.browser.find_element(By.CSS_SELECTOR, Locators._path_error_required).text == Elements._error_message_required
+
 @when('Enter all required fields')
 def step_impl(context):
     context.browser.find_element(By.CSS_SELECTOR, Locators._path_first_name).send_keys(Elements._first_name)

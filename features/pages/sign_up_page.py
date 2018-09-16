@@ -1,22 +1,44 @@
 
-
 class Locators(object):
-
 
     _next_button = '#button-step'
     _path_error_required = "[class='help-block ng-active']"
     _path_error_not_valid = "//div[contains(text(), 'This field is not valid')]"
+    _path_error_not_valid_2 = "[ng-switch-when] [ng-message]"
     _path_error_password = "//div[contains(text(), 'Password must be 6 to 15')]"
     _path_email = "[id=form-email]"
     _path_password = '[id=form-password]'
     _path_telephone = "[id=form-telephone]"
     _path_flag = ".selected-flag"
     _path_date_of_birth = "#form-date_of_birth"
+    _path_country_dropdown = "[id=form___fieldId___chosen]"
     _path_first_name = "[id=form-first_name]"
     _path_last_name = "[id=form-last_name]"
     _path_address = "[id=form-addr_street]"
     _path_zip_code = "[id=form-addr_zip]"
     _path_city = "[id=form-addr_city]"
+    _path_question_second_page = "//*[contains(text(), 'Have you traded')]"
+    _path_finish_button = '[id=button-step]'
+    _path_shares = "//select[@id='form-shares']"
+    _path_forex = "//select[@id='form-forex']"
+    _path_cfds = "//select[@id='form-cfds']"
+    _path_spread_betting = "//select[@id='form-spread_betting']"
+    _path_relevante_experience = "//select[@id='form-relevant_experience']"
+    _path_trading_platform = "//select[@id='form-trading_accounts']"
+    _path_currency = "//select[@id='form-currency']"
+    _path_annual_income = "//select[@id='form-approx_annual_income']"
+    _path_employment_status = "//select[@id='form-employment_status']"
+    _path_assets = "//select[@id='form-liquid_savings']"
+    _java_script_shares = "document.getElementById('form-shares').setAttribute('style', 'inline-block')"
+    _java_script_forex = "document.getElementById('form-forex').setAttribute('style', 'inline-block')"
+    _java_script_cfds = "document.getElementById('form-cfds').setAttribute('style', 'inline-block')"
+    _java_script_spread_betting = "document.getElementById('form-spread_betting').setAttribute('style', 'inline-block')"
+    _java_script_relevante_experience = "document.getElementById('form-relevant_experience').setAttribute('style', 'inline-block')"
+    _java_script_trading_platform = "document.getElementById('form-trading_accounts').setAttribute('style', 'inline-block')"
+    _java_script_currency = "document.getElementById('form-currency').setAttribute('style', 'inline-block')"
+    _java_script_annual_income = "document.getElementById('form-approx_annual_income').setAttribute('style', 'inline-block')"
+    _java_script_employment_status = "document.getElementById('form-employment_status').setAttribute('style', 'inline-block')"
+    _java_script_assets = "document.getElementById('form-liquid_savings').setAttribute('style', 'inline-block')"
 
 class Elements(object):
 

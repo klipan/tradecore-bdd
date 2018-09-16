@@ -97,10 +97,3 @@ Feature: Questionnaire test
         | $50,000 - $99,999 |
         | $5,000 - $49,999 |
         | Less than $5,000 |
-    Scenario: Click Finish button
-        When User clicks on Finish button
-        Then Error is displayed
-
-    Scenario: Read terms
-        When Select read terms
-        Then Read terms checkbox is selected

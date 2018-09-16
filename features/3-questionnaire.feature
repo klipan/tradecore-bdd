@@ -97,3 +97,7 @@ Feature: Questionnaire test
         | $50,000 - $99,999 |
         | $5,000 - $49,999 |
         | Less than $5,000 |
+    Scenario: Portal is open
+        When Select read terms
+        And Click Finish
+        Then Test is done

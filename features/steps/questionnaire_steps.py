@@ -122,3 +122,14 @@ def step_impl(context, options):
 def step_impl(context, options):
     dd = Select (context.browser.find_element(By.XPATH, Locators_q._path_assets))
     assert dd.first_selected_option.text == options
+
+@when('Select read terms')
+def step_impl(context):
+    context.browser.find_element(By.CSS_SELECTOR, ".checkbox").click()
+@when('Click Finish')
+def step_impl(context):
+    context.browser.find_element(By.CSS_SELECTOR, "#button-step").click()
+@then('Test is done')
+def step_impl(context):
+    WebDriverWait(context.browser, 50).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#base\.portal\.account-add')))
+    assert context.browser.title == "TradeCore - Account"

@@ -120,7 +120,6 @@ def step_impl(context):
 def step_impl(context):
     rgb = context.browser.find_element_by_css_selector('#button-step').value_of_css_property('background-color')
     hex = Color.from_string(rgb).hex
-    print(hex)
     assert hex == '#005c00'
 
 @when('Enter all required fields')

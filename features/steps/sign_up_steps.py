@@ -147,6 +147,8 @@ def step_impl(context):
     address.clear()
     address.send_keys(Elements._address)
 
-    context.browser.find_element(By.CSS_SELECTOR, Locators._path_city).send_keys(Elements._city)
+    city = context.browser.find_element(By.CSS_SELECTOR, Locators._path_city)
+    city.clear()
+    city.send_keys(Elements._city)
 
     context.browser.find_element(By.CSS_SELECTOR, Locators._next_button).click()

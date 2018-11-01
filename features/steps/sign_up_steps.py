@@ -1,6 +1,7 @@
 from behave import then, given, when
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.color import Color
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
@@ -111,9 +112,16 @@ def step_impl(context):
     context.browser.find_element(By.CSS_SELECTOR, Locators._path_city).send_keys(Elements._city)
     context.browser.find_element(By.CSS_SELECTOR, Locators._next_button).click()
 
-@then('Error message is dislayed')
+@then('Error message is displayed')
 def step_impl(context):
     assert context.browser.find_element(By.CSS_SELECTOR, Locators._path_error_required).text == Elements._error_message_required
+
+@then('Color of Next button is green')
+def step_impl(context):
+    rgb = context.browser.find_element_by_css_selector('#button-step').value_of_css_property('background-color')
+    hex = Color.from_string(rgb).hex
+    print(hex)
+    assert hex == '#005c00'
 
 @when('Enter all required fields')
 def step_impl(context):

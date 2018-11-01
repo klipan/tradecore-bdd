@@ -9,7 +9,7 @@ from features.pages.questionnaire_page import Locators_q
 
 @then('User is redirected to a questionnaire')
 def step_impl(context):
-    #WebDriverWait(context.browser, 15).until(EC.element_to_be_clickable((By.XPATH, "[ng-class='\{\'text-red\'\:field\.\$invalid \&\& form\.\$submitted\}']")))
+    WebDriverWait(context.browser, 15).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[class=checkbox]")))
     title = context.browser.find_element(By.XPATH, Locators_q._path_question_second_page)
     assert title.is_displayed()
 

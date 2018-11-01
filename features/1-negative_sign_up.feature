@@ -66,4 +66,4 @@ Feature: Tradecore app failed
 
     Scenario: Postcode is missing
         When Enter all required fields except postcode
-        Then Error message is dislayed
+        Then Error message is displayed

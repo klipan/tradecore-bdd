@@ -23,7 +23,7 @@ class Locators(object):
 
 class Elements(object):
 
-    _URL = "https://demo-biq.dev.tradecore.io/#/"
+    _URL = "https://uk.demo-biq.dev.tradecore.io/#/"
     _error_message_required = "THIS FIELD IS REQUIRED"
     _error_message_not_valid = "THIS FIELD IS NOT VALID"
     _first_name = "Nikola"

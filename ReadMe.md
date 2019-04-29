@@ -59,8 +59,8 @@ Structure of the project is:
 Here's a brief explanation of the files:
 * **environment.py**: Define code to run before and after certain events during testing. (starts WebDriver)
 * **.feature**: Written test for create account and login, with scenarios an steps.
-* **steps/**: This is where Behave will initially look for the code for tests via decorators.
-* **pages/**: Use locators and elements in file for implementing steps
+* **steps**: This is where Behave will initially look for the code for tests via decorators.
+* **pages**: Use locators and elements in file for implementing steps
 
 To run test case open terminal in project root directory and type:
 ```
